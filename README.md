@@ -49,29 +49,17 @@ La fonction lj() permet d'afficher la liste des processus en arrière-plan. Elle
 
 La fonction sj() permet de suspendre un processus. Elle recherche d'abord si le processus en question existe. Si c'est le cas, elle récupère son indice, envoie le signal SIGSTOP pour arrêter le processus, puis remplace l'état "Actif" par "Suspendu" dans la liste des processus.
 
-Exemple du résultat de la commande sj :
-
-![Résultat de la commande sj](sj_result.png)
-
 Après avoir utilisé sj, on remarque que le processus passe bien de l'état "Actif" à "Suspendu", ce qui confirme que la commande sj fonctionne comme attendu.
 
 #### Fonction bg
 
 La fonction bg() permet de reprendre l'exécution d'un processus en arrière-plan. Elle est presque identique à la fonction sj(), mais utilise le signal SIGINT au lieu de SIGSTOP. L'état "Suspendu" dans la liste des processus est remplacé par "Actif".
 
-Exemple du résultat de la commande bg :
-
-![Résultat de la commande bg](bg_result.png)
-
 Après avoir utilisé bg, on remarque que le processus passe bien de l'état "Suspendu" à "Actif", ce qui confirme que la commande bg fonctionne comme attendu.
 
 #### Fonction fg
 
 La fonction fg() permet de reprendre l'exécution d'un processus en avant-plan. Elle est similaire à la fonction sj(), mais utilise le signal SIGCONT pour continuer l'exécution du processus. Le processus est également supprimé de la liste des processus en arrière-plan.
-
-Exemple du résultat de la commande fg :
-
-![Résultat de la commande fg](fg_result.png)
 
 On peut observer que le processus est revenu en avant-plan.
 
